@@ -1,0 +1,39 @@
+﻿@model LivrariaControleEmprestimo.DATA.Models.Livro
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes do Livro</h1>
+
+<div>
+    <h4>Confira os detalhes abaixo</h4>
+    <hr />
+    <div>
+        <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.Id">Alterar</a>
+        <a class="btn btn-primary" asp-action="Index">Voltar</a>
+    </div>
+    <br />
+    <div class="card">
+        <div class="card-header">Descrição</div>
+        <div class="card-body row">
+            <div class="col-md">
+                <div class="form-group">
+                    <label>@Html.DisplayNameFor(model => model.Nome)</label>
+                    <input disabled class="form-control" value="@Html.DisplayFor(model => model.Nome)" />
+
+                </div>
+                <div class="form-group">
+                    <label>@Html.DisplayNameFor(model => model.Autor)</label>
+                    <input disabled class="form-control" value="@Html.DisplayFor(model => model.Autor)" />
+                </div>
+                <div class="form-group">
+                    <label>@Html.DisplayNameFor(model => model.Editora)</label>
+                    <input disabled class="form-control" value="@Html.DisplayFor(model => model.Editora)" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

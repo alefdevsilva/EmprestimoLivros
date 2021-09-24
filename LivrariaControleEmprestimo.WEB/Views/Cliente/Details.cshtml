@@ -1,0 +1,60 @@
+﻿@model LivrariaControleEmprestimo.DATA.Models.Cliente
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes do Cliente</h1>
+
+<div>
+    <h4>Confira os detalhes abaixo</h4>
+    <hr />
+    <div>
+        <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model.Id">Alterar</a>
+        <a  asp-action="Index" class="btn btn-primary">Voltar</a>
+    </div>
+    <br />
+    <div class="card">
+        <div class="card-header">Informações pessoais</div>
+        <div class="card-body row">
+            <div class="col-md">
+                <div class="form-group">
+                    <label>  @Html.DisplayNameFor(model => model.Cpf)</label>
+                    <input disabled class="form-control" value=" @Html.DisplayFor(model => model.Cpf)" />
+
+                </div>
+                <div class="form-group">
+                    <label>  @Html.DisplayNameFor(model => model.Nome)</label>
+                    <input disabled class="form-control" value=" @Html.DisplayFor(model => model.Nome)" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <div class="card">
+        <div class="card-header">Endereco</div>
+        <div class="card-body row">
+
+            <div class="col-md">
+                <div class="form-group">
+                    <label>  @Html.DisplayNameFor(model => model.Endereco)</label>
+                    <input disabled class="form-control" value=" @Html.DisplayFor(model => model.Endereco)" />
+                </div>
+                <div class="form-group">
+                    <label>  @Html.DisplayNameFor(model => model.Cidade)</label>
+                    <input disabled class="form-control" value=" @Html.DisplayFor(model => model.Cidade)" />
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="form-group">
+                    <label>  @Html.DisplayNameFor(model => model.Bairro)</label>
+                    <input disabled class="form-control" value=" @Html.DisplayFor(model => model.Bairro)" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+
