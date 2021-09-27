@@ -37,5 +37,20 @@ namespace LivrariaControleEmprestimo.WEB.Controllers
             Livro oLivro = oLivroService.oRepositoryLivro.SelecionarPK(id);
             return View(oLivro);
         }
+
+        public IActionResult Edit(int id)
+        {
+            Livro oLivro = oLivroService.oRepositoryLivro.SelecionarPK(id);
+            return View(oLivro);
+        }
+        [HttpPost]
+        public IActionResult Edit(Livro model)
+        {
+            Livro oLivro = oLivroService.oRepositoryLivro.Alterar(model);
+
+            int id = oLivro.Id;
+
+            return RedirectToAction("Details", new { id });
+        }
     }
 }
