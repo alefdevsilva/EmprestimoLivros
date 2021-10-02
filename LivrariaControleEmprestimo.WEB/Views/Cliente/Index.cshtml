@@ -48,7 +48,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Bairro)
             </td>
-            <td>
+            <td class="row">
                 <a asp-action="Edit" class="btn btn-success m-1" asp-route-id="@item.Id">Alterar</a>
                 <a asp-action="Details" class="btn btn-primary m-1" asp-route-id="@item.Id">Detalhes</a>
                
@@ -86,8 +86,8 @@
 }
     </tbody>
 </table>
-@section Scripts{
 
+@section Scripts{
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable({

@@ -21,10 +21,11 @@ namespace LivrariaControleEmprestimo.DATA.Models
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Livro> Livro { get; set; }
         public virtual DbSet<LivroClienteEmprestimo> LivroClienteEmprestimo { get; set; }
+        public virtual DbSet<VwLivroClienteEmprestimo> VwLivroClienteEmprestimo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)  
+            if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=ControleEmprestimoLivro;Integrated Security=True");
@@ -68,6 +69,15 @@ namespace LivrariaControleEmprestimo.DATA.Models
                     .WithMany(p => p.LivroClienteEmprestimo)
                     .HasForeignKey(d => d.IdLivro)
                     .HasConstraintName("fk_idLivro");
+            });
+
+            modelBuilder.Entity<VwLivroClienteEmprestimo>(entity =>
+            {
+                entity.ToView("VW_Livro_Cliente_Emprestimo");
+
+                entity.Property(e => e.NomeCliente).IsUnicode(false);
+
+                entity.Property(e => e.NomeLivro).IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);
