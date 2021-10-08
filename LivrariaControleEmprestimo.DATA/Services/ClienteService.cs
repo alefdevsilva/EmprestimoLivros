@@ -17,3 +17,5 @@ namespace LivrariaControleEmprestimo.DATA.Services
 
     }
 }
+
+//Pare em 6 minutos...(Como passar mais de uma model)
