@@ -16,101 +16,131 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <table id="listClienteTable" class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.oCliente.Cpf)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.oCliente.Nome)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.oCliente.Endereco)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.oCliente.Cidade)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.oCliente.Bairro)
-                        </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.oListCliente)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Cpf)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Nome)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Endereco)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Cidade)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Bairro)
-                            </td>
-
-                        </tr>
-                    }
-                </tbody>
-            </table>
-
-            <br />
-            <table id="listLivroTable" class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.oLivro.Nome)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.oLivro.Autor)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.oLivro.Editora)
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.oListLivro)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Nome)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Autor)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Editora)
-                            </td>
-
-                        </tr>
-                    }
-                </tbody>
-            </table>
-
-            <br />
-            <br />
-            <br />
-
-
-            <div class="form-group">
-                <label asp-for="dataEprestimo" class="control-label"></label>
-                <input asp-for="dataEprestimo" class="form-control" />
-                <span asp-validation-for="dataEprestimo" class="text-danger"></span>
+            <div hidden class="form-group">
+                <input asp-for="idCliente" class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="dataEntrega" class="control-label"></label>
-                <input asp-for="dataEntrega" class="form-control" />
-                <span asp-validation-for="dataEntrega" class="text-danger"></span>
+
+            <div hidden class="form-group">
+                <input asp-for="idLivro" class="form-control" />
             </div>
+
+            <div class="card">
+                <div class="card-header">Cliente</div>
+                <div class="card-body">
+                    <table id="listClienteTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oCliente.Cpf)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oCliente.Nome)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oCliente.Endereco)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oCliente.Cidade)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oCliente.Bairro)
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.oListCliente)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cpf)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nome)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Endereco)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cidade)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Bairro)
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+            <br />
+
+            <div class="card">
+                <div class="card-header">Livros</div>
+                <div class="card-body">
+                    <table id="listLivroTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oLivro.Nome)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oLivro.Autor)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.oLivro.Editora)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.oListLivro)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nome)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Autor)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Editora)
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="card ">
+                <div class="card-header">Datas</div>
+                <div class="card-body row">
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label asp-for="dataEprestimo" class="control-label"></label>
+                            <input asp-for="dataEprestimo" class="form-control" />
+                            <span asp-validation-for="dataEprestimo" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md">
+                        <div class="form-group">
+                            <label asp-for="dataEntrega" class="control-label"></label>
+                            <input asp-for="dataEntrega" class="form-control" />
+                            <span asp-validation-for="dataEntrega" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -124,17 +154,43 @@
 @section Scripts{
     <script>
         $(document).ready(function () {
-            $('#listClienteTable').DataTable({
+            var listClienteTable = $('#listClienteTable').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.11.2/i18n/pt_br.json"
                 }
             });
 
-            $('#listLivroTable').DataTable({
+            var listLivroTable = $('#listLivroTable').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.11.2/i18n/pt_br.json"
                 }
             });
+
+            //TABELA CLIENTE
+            $('#listClienteTable tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    listClienteTable.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+
+        
+
+            //TABELA LIVRO
+            $('#listLivroTable tbody').on('click', 'tr', function () {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                }
+                else {
+                    listLivroTable.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+
+    
         });
     </script>
 }
